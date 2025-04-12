@@ -6,5 +6,5 @@ This project is a basic implementation of Dijkstra's Algorithm in Python to find
 
 
 ## Features
--- Calculates the shortest distance from a start node to a target node, or to all other nodes if no target is specified.
--- Prints both the distance and the path taken.
+- Calculates the shortest distance from a start node to a target node, or to all other nodes if no target is specified.
+- Prints both the distance and the path taken.
