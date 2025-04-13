@@ -20,17 +20,17 @@ def shortest_path_finder(graph, start_node):
     # Create a "paths" dictionary to track the shortest path to the target node.
     shortest_paths = {key: [] for key in graph}
 
-    # For the start node, append the start node
+    # For the path of the start node, append the start node
     shortest_paths[start_node].append(start_node)
 
 
     # While unvisited_nodes has at least one item:
     while unvisited_nodes:
 
-        # Get the node with the smallest node (Explore the node with the smallest node first)
+        # Get the node with the smallest node (Explore the node with the smallest weight first)
         current_node = min(unvisited_nodes, key=node_weights.get)
 
-        # For the neighbour node:
+        # For the neighbour node(s):
         for node, distance in graph[current_node]:
 
             # Check if the total distance to the currenly explored node is smaller than the weight of currently explored node:
@@ -40,8 +40,8 @@ def shortest_path_finder(graph, start_node):
                 # Update the currently explored node weight with that value (new smaller weight)
                 node_weights[node] = distance + node_weights[current_node]
 
-                # Check if the currently explored node already has a path to that node:
-                # This means that the path needs to be updated with the better (shorter) path
+                # Check if the currently explored node already has a compelte path to that node:
+                # This means that the path needs to be updated to reflect the better (shorter) path
                 if shortest_paths[node] and shortest_paths[node][-1] == node:
                     shortest_paths[node] = shortest_paths[current_node][:]
 
@@ -66,7 +66,6 @@ def shortest_path_finder(graph, start_node):
         print(f'Path: {" -> ".join(shortest_paths[key])}\n')
  
     return node_weights, shortest_paths
-
 
 
 
