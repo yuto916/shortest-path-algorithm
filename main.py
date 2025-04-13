@@ -9,6 +9,7 @@ my_graph = {
 
 
 def shortest_path_finder(graph, start_node):
+
     # Create a list of unvisited nodes
     unvisited_nodes = list(graph)
 
@@ -55,7 +56,15 @@ def shortest_path_finder(graph, start_node):
         # Remove the already visited node from the unviisited_nodes
         unvisited_nodes.remove(current_node)
     
-    print(f"{node_weights}\n{shortest_paths}")
+    
+    # Display the result
+    print("\n")
+    print(f"Distances From Start Node to Each Node:")
+    print(f"---------------------------------------")
+    for key, value in shortest_paths.items():
+        print(f'{start_node} - {key} shortest path distance: {node_weights[key]}')
+        print(f'Path: {" -> ".join(shortest_paths[key])}\n')
+ 
     return node_weights, shortest_paths
 
 
